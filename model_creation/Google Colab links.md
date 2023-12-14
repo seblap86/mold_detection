@@ -1,0 +1,2 @@
+[fruit_veg_classifier (Google Colab link)](https://colab.research.google.com/drive/1JzrEBrzCvfa3fnf_g8WwwRSvgljW0pTf?usp=sharing)
+[mold_detection_model (Google Colab link)](https://colab.research.google.com/drive/1ZU-EDwXCC8lzymQsOrUJqHcKANNiP-zs?usp=sharing)
