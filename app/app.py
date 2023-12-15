@@ -101,7 +101,7 @@ def clustering(image, k_value):
 
 def plot_pie_chart(hex_colors, filtered_counts):
     # Plot pie chart for dominant colors
-    fig, ax = plt.subplots(figsize=(4, 4))
+    fig, ax = plt.subplots(figsize=(3, 3))
 
     # Use a distinct color for each slice
     colors = hex_colors[:len(filtered_counts)]
@@ -142,12 +142,14 @@ def mold(non_background_pixels):
     return message
 
 def main():
-    st.set_page_config(page_title="Mold Detector App",
+    st.set_page_config(page_title="MOLD DETECTOR APP",
                    page_icon=":gun:",
                    layout="wide")
-    st.title("Mold Detector App")
+    col1, col2, col3 = st.columns(spec=[1,2,1])
+    with col2:
+        st.title("MOLD DETECTOR APP")
 
-    st.markdown("# :rainbow[Hunting the silent killer ]"   ":gun:")
+        st.markdown("# :rainbow[Hunting the Silent Killer ]"   ":gun:")
 
     # File uploader for image
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
@@ -174,29 +176,38 @@ def main():
         # K-means clustering for dominant colors
         k_value = st.slider("Select the number of dominant colors:", min_value=1, max_value=10, value=6)
         with st.spinner('Wait for it...'):
-            time.sleep(8)
+            time.sleep(9)
         st.success('Done!')
         number_of_colors, hex_colors, filtered_counts = clustering(processed_image_without_black, k_value)
-
-
-
-        # Display the dominant colors
-        title = 'Colors Detection'
-        styled_subheader = f'<div style="font-size: 46px; text-align: center;">{title}</div>'
+        title = 'Color Detection'
+            
+        styled_subheader = f'<div style="font-size: 46px; text-align: center; background: linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red); -webkit-background-clip: text; color: transparent;">{title}</div>'
         st.markdown(styled_subheader, unsafe_allow_html=True)
-        st.pyplot(plot_pie_chart(hex_colors, filtered_counts), use_container_width=False)
+        col1, col2, col3 = st.columns(spec=[1, 2, 1])
+
+
+        with col2:
+            
+            st.pyplot(plot_pie_chart(hex_colors, filtered_counts))
+
+        
 
         moldish=mold(processed_image_without_black)
-        styled_text = f'<div style="font-size: 72px; text-align: center; border: 2px solid red; padding: 10px;">{moldish}</div>'
+        styled_text = f'<div style="font-size: 56px; text-align: center; border: 2px solid red; padding: 10px;">{moldish}</div>'
         st.markdown(styled_text, unsafe_allow_html=True)
-        test_text='Fruit detection'
-        styled_subheaders = f'<div style="font-size: 46px; text-align: center;">{test_text}</div>'
+        test_text="Let's find out what it is! "
+        styled_subheaders = f'##<div style="font-size: 46px; text-align: center;">{test_text} :mag:</div>'
         st.markdown(styled_subheaders, unsafe_allow_html=True)
 
-        if st.button('Predicting type of fruit'):
-            # result = predict(processed_image)
-            result = predict(original_image)
-            st.write(f'## {result.capitalize()}')
+        col1, col2, col3, col4, col5 = st.columns(spec=[1, 1, 1, 1, 1])
+        with col3:
+            if st.button('Predicting type of fruit :crystal_ball:'):
+                #result = predict(processed_image)
+                result = predict(original_image)
+                
+                styled_subheaders = f'##<div style="font-size: 46px; background-color: #0066cc, text-align: center;">It probably is: {result.upper()}</div>'
+                st.markdown(styled_subheaders, unsafe_allow_html=True)
+                st.success('Hooray!', icon='🎉') 
 
 
 if __name__ == "__main__":

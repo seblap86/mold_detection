@@ -12,8 +12,10 @@ We use Python (Jupyter Notebook; e.g., data wrangling, image processing, trainin
 ## Timeline
 The project will be finished and presented on December 15.
 
-## Dataset
-We used the following dataset for fruit and vegetable classification:
+## Datasets
+We used the following image dataset for training of the fruit and vegetable classification model:
 - "Fruits and Vegetables Image Recognition Dataset"
 - 100 training images, 10 test images, 10 validation images in each of 36 fruits/vegetables categories
 - [Link to the dataset](https://www.kaggle.com/datasets/kritikseth/fruit-and-vegetable-image-recognition)
+
+For training the mold / no mold detection model, we web-scraped an image dataset from Bing image search containing mold and no mold. We don't provide this database in this Github repo for copyright reasons but can provide it on request.

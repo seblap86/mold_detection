@@ -1,12 +1,12 @@
-import tensorflow as tf
-from tensorflow import keras
+import tensorflow
 
 import numpy as np
 import os
 from PIL import Image
+from tensorflow import keras
 
-from keras.models import load_model
-from keras.preprocessing import image
+
+
 
 
 def preprocess_image(img):
@@ -32,9 +32,9 @@ def preprocess_image(img):
 
 def predict(data):
     path = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(path, 'model', 'fruit_veg_classifier.keras')
+    model_path = os.path.join(path, 'model/fruit_veg_classifier.h5')
     # new_model = tf.keras.models.load_model('C:\\Users\\agata\\Downloads\\model.keras')
-    new_model = load_model(model_path)
+    new_model = keras.models.load_model(model_path)
     # weights = new_model.get_weights()
     # img = image.load_img(data, target_size=(224, 224))  # Adjusting the target size based on model's input size
     # img_array = image.img_to_array(img)
