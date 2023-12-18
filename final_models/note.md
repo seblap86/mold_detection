@@ -1,4 +1,4 @@
-The final trained models are too big for upload. We can provide them on request.
+We can provide the final trained models on request (large file sizes).
 
 Information on file names, types, and sizes:
 - fruit_veg_classifier.keras: 1.1 GB
