@@ -1,6 +1,6 @@
 ![Cover photo](cover_photo.jpg)
 
-# Mold detection - Hunting the silent killer
+# Mold Detection - Hunting the Silent Killer
 ## Ironhack final project by Sebastian Bobeth, Dominik Koppen, Agata Płucienik
 - Ironhack Data Analytics Bootcamp, Berlin, December 2023
 - Project status: Prototype finalized
