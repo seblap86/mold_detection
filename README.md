@@ -1,3 +1,5 @@
+![Cover photo](cover_photo.jpg)
+
 # Mold detection - Hunting the silent killer
 ## Final project by Sebastian Bobeth, Dominik Koppen, Agata Płucienik
 - Ironhack Data Analytics Bootcamp, Berlin, November 2023
@@ -19,3 +21,6 @@ We used the following image dataset for training of the fruit and vegetable clas
 - [Link to the dataset](https://www.kaggle.com/datasets/kritikseth/fruit-and-vegetable-image-recognition)
 
 For training the mold / no mold detection model, we web-scraped an image dataset from Bing image search containing mold and no mold. We don't provide this database in this Github repo for copyright reasons but can provide it on request.
+
+## Acknowledgment
+Cover photo by <a href="https://unsplash.com/@mostlymarvelling?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nancy Hughes</a> on <a href="https://unsplash.com/photos/three-oranges-and-an-egg-on-a-blue-background-CswOWBovmVs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.
