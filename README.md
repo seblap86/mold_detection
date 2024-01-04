@@ -6,7 +6,7 @@
 - Project status: Prototype finalized
 
 ## Project scope
-In our pursuit to address health risks associated with mycotoxins, we developed a mold detector application prototype for fruits and vegetables with Python and machine learning. Our application uses image recognition to identify mold on vegetables and fruits (mold / no mold detector) using a Python function. This can help older individuals who are more susceptible to health issues caused by moldy groceries. Furthermore, our application classifies the food category of the input image (fruit and vegetable classifier). This can be used to provide additional information on, for example, durability and proper storage practice in future versions of the application. The prototype is displayed on an interactive interface using Streamlit. With this prototype, we provide a practical approach to enhance food safety and well-being.
+In our pursuit to address health risks associated with mycotoxins, we developed a mold detector application prototype for fruits and vegetables with Python deep learning and machine learning. Our application uses image recognition to identify mold on vegetables and fruits (mold / no mold detector) using a Python function. This can help older individuals who are more susceptible to health issues caused by moldy groceries. Furthermore, our application classifies the food category of the input image (fruit and vegetable classifier). This can be used to provide additional information on, for example, durability and proper storage practice in future versions of the application. The prototype is displayed on an interactive interface using Streamlit. With this prototype, we provide a practical approach to enhance food safety and well-being.
 
 ## Tech used
 We used Python (Jupyter Notebook) for most steps of the process. In specific, we used the following modules for the following steps:
@@ -18,6 +18,8 @@ We used Python (Jupyter Notebook) for most steps of the process. In specific, we
 - Streamlit: Interface building
 
 ## Product prototype
+You can see screenshots of the prototype in the 'app/screenshots' folder.
+
 #### Flow and components
 - **Image upload**: The user can upload an image.
 - **Preprocessing**: The image is preprocessed (for example, background is removed, image is flattened - this is important for the following steps).
