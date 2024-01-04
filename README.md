@@ -9,13 +9,13 @@
 In our pursuit to address health risks associated with mycotoxins, we developed a mold detector application prototype for fruits and vegetables with Python deep learning and machine learning. Our application uses image recognition to identify mold on vegetables and fruits (mold / no mold detector) using a Python function. This can help older individuals who are more susceptible to health issues caused by moldy groceries. Furthermore, our application classifies the food category of the input image (fruit and vegetable classifier). This can be used to provide additional information on, for example, durability and proper storage practice in future versions of the application. The prototype is displayed on an interactive interface using Streamlit. With this prototype, we provide a practical approach to enhance food safety and well-being.
 
 ## Tech used
-We used Python (Jupyter Notebook) for most steps of the process. In specific, we used the following modules for the following steps:
+We used Python (Jupyter Notebook, Google Colab, Visual Studio Code) for most steps of the process. In specific, we used the following modules for the following steps:
 - Pillow, OpenCV: Image processing, webcam capture feature (yet to be integrated in application)
 - Bing Image Downloader: Image web scraping
 - Matplotlib: Image depiction
 - Scikit-Learn: Unsupervised machine learning (KMeans)
 - TensorFlow Keras: Supervised machine learning (CNNs)
-- Streamlit: Interface building
+- Streamlit: Interface building.
 
 ## Product prototype
 You can see screenshots of the prototype in the 'app/screenshots' folder.
@@ -25,7 +25,7 @@ You can see screenshots of the prototype in the 'app/screenshots' folder.
 - **Preprocessing**: The image is preprocessed (for example, background is removed, image is flattened - this is important for the following steps).
 - **Display of images**: The unprocessed and the processed image are shown to the user.
 - **Display of main colors**: The Python function to detect mold currently works with colors. Hence, the main colors of the image are displayed to the user. To achieve this, the colors of the image are HEX labeled and and a KMeans model is trained on the colors of the image. The user can define the number of clusters. The centroid of each cluster represents the average color of each cluster (as a main color) and is shown to the user in a pie chart (the size of the pieces is determined by the total number of similar colors in the respective cluster).
-- **Mold / no mold detection and warning**: A function checks if certain colors typical for mold occur suspicously often in the image or not. Currently, the function checks for certain grey colors. These typically do not appear in fruits or vegetables but in mold. If a suspicious amount appears, the application warns the user that there could be mold.
+- **Mold / no mold detection and warning**: A function checks if certain colors typical for mold occur suspiciously often in the image or not. Currently, the function checks for certain grey colors. These typically do not appear in fruits or vegetables but in mold. If a suspicious amount appears, the application warns the user that there could be mold.
 - **Fruit and vegetable classification**: The image is input into a pre-trained CNN (convolutional neural network) model that predicts the type of fruit or vegetable (the model had an accuracy of 97% on the test set; see folders 'final_models' and 'model_creation' for more information on the model specifications and folder 'tableau_visualizations' for the training history). The classification is shown to the user.
 
 #### Features for the future
