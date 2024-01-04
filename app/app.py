@@ -1,37 +1,23 @@
-from PIL import Image
 import cv2
-import numpy as np
-
-import tempfile
-import streamlit as st
-import pandas as pd
-
-from prediction import predict
-# In[2]:
-
 import os
 import requests
-import numpy as np
-from rembg import remove
-from PIL import Image
-from io import BytesIO
+import sklearn
+import tempfile
 import time
 
-# In[3]:
-
-
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import sklearn
-import cv2
-from sklearn.cluster import KMeans
+import pandas as pd
+import streamlit as st
+
 from collections import Counter
+from io import BytesIO
+from PIL import Image
+from prediction import predict
+from rembg import remove
 from skimage.color import rgb2lab, deltaE_cie76
+from sklearn.cluster import KMeans
 
-
-path = r'C:\Users\agata\Downloads\apple.png'
-uploaded_file = rf'{path}'
 
 def remove_background_with_rembg(input_image):
     # Use PIL to open the image from BytesIO
@@ -57,9 +43,8 @@ def remove_background_with_rembg(input_image):
 
     return output_image
 
+
 def remove_black_color(output_image):
-
-
     # Create a binary mask for black pixels
     mask = (output_image[:, :, 0] == 0) & (output_image[:, :, 1] == 0) & (output_image[:, :, 2] == 0)
 
@@ -67,9 +52,6 @@ def remove_black_color(output_image):
     output_image[mask, 3] = 0
 
     return output_image
-
-
-
 
 
 def clustering(image, k_value):
@@ -82,10 +64,6 @@ def clustering(image, k_value):
     # Get cluster centers and labels
     cluster_centers = kmeans.cluster_centers_.astype(int)
     labels = kmeans.labels_
-
-
-
-
     counts = np.bincount(labels)
     max_count_cluster = np.argmax(counts)
     top_clusters = np.argsort(counts)[1:]
@@ -94,9 +72,8 @@ def clustering(image, k_value):
     number_of_colors=len(hex_colors)
     filtered_counts = counts.copy()
     filtered_counts[max_count_cluster] = 0
+    
     return number_of_colors, hex_colors, filtered_counts
-
-
 
 
 def plot_pie_chart(hex_colors, filtered_counts):
@@ -111,6 +88,7 @@ def plot_pie_chart(hex_colors, filtered_counts):
     ax.axis('equal')
 
     return fig
+
 
 def mold(non_background_pixels):
     flattened_image = non_background_pixels.reshape((-1, non_background_pixels.shape[-1]))
@@ -131,7 +109,6 @@ def mold(non_background_pixels):
             else:
                 no_mold.append(pixel_set)
 
-
     moldy = len(mold) / len(no_mold)
 
     if moldy > 0.1:
@@ -140,6 +117,7 @@ def mold(non_background_pixels):
         message = "NO MOLD DETECTED"
 
     return message
+
 
 def main():
     st.set_page_config(page_title="MOLD DETECTOR APP",
@@ -153,7 +131,6 @@ def main():
 
     # File uploader for image
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
-
 
     if uploaded_file is not None:
         original_image = Image.open(uploaded_file)
@@ -171,8 +148,6 @@ def main():
         with col2:
             st.image(processed_image, caption="Image after Background Removal", use_column_width=True)
 
-
-
         # K-means clustering for dominant colors
         k_value = st.slider("Select the number of dominant colors:", min_value=1, max_value=10, value=6)
         with st.spinner('Wait for it...'):
@@ -185,12 +160,8 @@ def main():
         st.markdown(styled_subheader, unsafe_allow_html=True)
         col1, col2, col3 = st.columns(spec=[1, 2, 1])
 
-
         with col2:
-            
             st.pyplot(plot_pie_chart(hex_colors, filtered_counts))
-
-        
 
         moldish=mold(processed_image_without_black)
         styled_text = f'<div style="font-size: 56px; text-align: center; border: 2px solid red; padding: 10px;">{moldish}</div>'
