@@ -32,7 +32,7 @@ We used Python (Jupyter Notebook) for most steps of the process. In specific, we
 - **Mold / no mold detection with supervised machine learning (CNN)**: Due to limited (time and computer power) resources, we could not finalize the integration of a machine learning model for mold prediction into the prototype. The best model we could train on our web-scraped dataset achieved a recall of 90% on the test set, but we still suspect it to overfit after seeing the training history and implementing further tests. More images, more diverse images, and an improved model building or training process should further improve the quality of the predictions. More information and the related code can be found in the folder 'final_models' and 'model_creation' in this repo. The training history can be seen in the 'tableau_visualizations' folder.
 
 #### Using the app
-To use the app, fork the repo and run the app.py file in the 'app' folder. We can provide the model on request (it is appx. 1GB large). We ran the model with Tensorflow version 2.14.
+To use the app, fork the repo and run the app.py file in the 'app' folder. We can provide the model on request (it is appx. 1GB large). You will need to adjust the 'model_path' value in the prediction.py file according to the new directory. We ran the model with Tensorflow version 2.14.
 
 ## Datasets
 #### Fruit/vegetable classifier
